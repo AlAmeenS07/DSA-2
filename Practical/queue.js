@@ -68,14 +68,14 @@ class LLQueue {
         this.size = 0
     }
 
-    enqueue(value){
+    enqueue(value) {
         const node = new Node(value)
-        if(this.size == 0){
+        if (this.size == 0) {
             this.head = node
         }
-        else{
+        else {
             let curr = this.head
-            while(curr.next){
+            while (curr.next) {
                 curr = curr.next
             }
             curr.next = node
@@ -83,12 +83,12 @@ class LLQueue {
         this.size++
     }
 
-    dequeue(){
+    dequeue() {
         let val;
-        if(!this.size){
+        if (!this.size) {
             return null
         }
-        else{
+        else {
             val = this.head
             this.head = val.next
         }
@@ -96,11 +96,11 @@ class LLQueue {
         return val.value
     }
 
-    peek(){
-        if(!this.size){
+    peek() {
+        if (!this.size) {
             return null
         }
-        else{
+        else {
             return this.head.value
         }
     }
@@ -109,4 +109,39 @@ class LLQueue {
 
 
 // queue using stack
+
+
+class QueueStack {
+    constructor() {
+        this.stack1 = []
+        this.stack2 = []
+    }
+
+    isEmpty(){
+        return this.stack1.length == 0 && this.stack2.length == 0
+    }
+
+    enqueue(value) {
+        this.stack1.push(value)
+    }
+
+    dequeue() {
+        if (this.stack2.length == 0) {
+            while (this.stack1.length) {
+                this.stack2.push(this.stack1.pop())
+            }
+        }
+        return this.stack2.pop()
+    }
+
+    peek() {
+        if (this.stack2.length == 0) {
+            while (this.stack1.length) {
+                this.stack2.push(this.stack1.pop())
+            }
+        }
+        return this.stack2[this.stack2.length - 1]
+    }
+
+}
 
