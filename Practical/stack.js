@@ -86,63 +86,114 @@
 // Stack with LL
 
 
-class Node {    
-    constructor(value){
-        this.value = value
-        this.next = null
-    }
-}
+// class Node {    
+//     constructor(value){
+//         this.value = value
+//         this.next = null
+//     }
+// }
 
-class LLStack {
+// class LLStack {
+//     constructor(){
+//         this.head = null
+//         this.size = 0
+//     }
+
+//     push(value){
+//         const node = new Node(value)
+//         if(this.size == 0){
+//             this.head = node
+//         }
+//         else{
+//             node.next = this.head
+//             this.head = node
+//         }
+//         this.size++
+//     }
+
+//     pop(){
+//         if(this.size){
+//             let val = this.head
+//             this.head = val.next
+//             this.size--
+//             return val.value
+//         }
+//         return "stack is empty"
+//     }
+
+//     peek(){
+//         if(this.size){
+//             return this.head.value
+//         }
+//         return "stack is empty !"
+//     }
+
+//     print(){
+//         let curr = this.head
+//         while(curr){
+//             console.log(curr.value)
+//             curr = curr.next
+//         }
+//     }
+// }
+
+// let llStack = new LLStack()
+
+// llStack.push(10)
+// llStack.push(20)
+// llStack.push(30)
+// // llStack.print()
+// console.log(llStack.peek())
+// console.log(llStack.pop())
+// llStack.print()
+
+
+//  Sort a stack using a temporary stack
+
+class Stack {
     constructor(){
-        this.head = null
-        this.size = 0
+        this.stack = []
     }
 
     push(value){
-        const node = new Node(value)
-        if(this.size == 0){
-            this.head = node
-        }
-        else{
-            node.next = this.head
-            this.head = node
-        }
-        this.size++
+        this.stack.push(value)
     }
 
     pop(){
-        if(this.size){
-            let val = this.head
-            this.head = val.next
-            this.size--
-            return val.value
-        }
-        return "stack is empty"
+        return this.stack.pop()
     }
 
     peek(){
-        if(this.size){
-            return this.head.value
-        }
-        return "stack is empty !"
+        return this.stack[this.stack.length - 1]
     }
 
     print(){
-        let curr = this.head
-        while(curr){
-            console.log(curr.value)
-            curr = curr.next
+        return this.stack.toString()
+    }
+
+    sort(){
+        function sorting(stack){
+            if(stack.length <= 1){
+                return stack
+            }
+            let leftStack = []
+            let rightStack = []
+            let mid = Math.floor(stack.length / 2)
+            while(stack.length){
+                
+            }
         }
+        return sorting(this.stack)
     }
 }
 
-let llStack = new LLStack()
 
-llStack.push(10)
-llStack.push(20)
-llStack.push(30)
-// llStack.print()
-console.log(llStack.peek())
-console.log(llStack.pop())
-llStack.print()
+let sortStack = new Stack()
+
+sortStack.push(9)
+sortStack.push(4)
+sortStack.push(1)
+sortStack.push(6)
+sortStack.push(2)
+
+console.log(sortStack.print())
